@@ -1,6 +1,7 @@
 Vagrant.configure("2") do |config|
   config.vm.box = "tknerr/managed-server-dummy"
 
+# this stanza depends from the vagrant plugin vagrant-managed-servers
   config.vm.provider :managed do |managed, override|
     managed.server = "localhost"
     override.ssh.username = "nicolino"
