@@ -1,3 +1,14 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+
+require File.dirname(__FILE__)+"/dependency_manager"
+check_plugins ["reload", "vagrant-managed-servers"]
+
 Vagrant.configure("2") do |config|
   config.vm.box = "tknerr/managed-server-dummy"
 
@@ -10,13 +21,21 @@ Vagrant.configure("2") do |config|
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
+  config.vm.synced_folder "saltstack/states", "/srv/salt/",  type: "rsync", rsync__auto: true
+  config.vm.synced_folder "saltstack/pillars", "/srv/pillar/", type: "rsync", rsync__auto: true
+
+
+  #adding ssh forwarding agent
+  config.ssh.forward_agent = true
+
+
 
   config.vm.provision :salt do |salt|
     salt.masterless = true
     salt.install_master = true
     salt.no_minion = false
     salt.minion_id = "localhost"
-    salt.minion_config = "salt/minion"
+    salt.minion_config = "saltstack/minion"
 
  # if you want preseed the master and the minion manually you need 
  # to generate keys for the master and minion:
@@ -32,7 +51,8 @@ Vagrant.configure("2") do |config|
  #       }    
   end
 
+
   config.vm.provision "shell",
-    inline: "salt-key --accept-all -y"
+    inline: "systemctl restart salt-minion && sleep 4 && salt-key --accept-all -y"
 
 end
