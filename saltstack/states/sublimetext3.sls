@@ -27,28 +27,39 @@ install_package_manager:
     - group: {{ my_user }}
     - mode: 664 
 
+{% set package_to_be_installed = salt['pillar.get']('sublime:package') %}
+
 install_plugin_packages:
   file.serialize:
     - name: {{ my_sublime_congiration_folder}}/Packages/User/Package Control.sublime-settings
     - dataset:
         installed_packages:
-         - ApacheConf
-         - auto-save
-         - BracketHighlighter
-         - Git
-         - Git blame
-         - Git Commit Message Syntax
-         - GitGutter
-         - Jinja2
-         - Package Control
-         - SaltStack-related syntax highlighting and snippets
-         - SideBarEnhancements
-         - Sublimerge 3          
+        {% for package,settings in package_to_be_installed.items() %}
+         - {{ package }} 
+        {% endfor %}          
     - formatter: json
     - makedirs: true
     - user: {{ my_user }}
     - group: {{ my_user }}
     - mode: 664 
+
+{% set packages_configuration_directory = my_sublime_congiration_folder + '/' + 'Packages/User'%}
+
+
+{% for package,settings in package_to_be_installed.items() %}
+{% if settings %}
+condigure_package_{{ package }}:
+    file.serialize:
+        - name: {{ packages_configuration_directory }}/{{ settings.filename}}.sublime-settings
+        - dataset:
+            {{ settings.conf}}
+        - formatter: json
+        - makedirs: true
+        - user: {{ my_user }}
+        - group: {{ my_user }}
+        - mode: 664     
+{% endif %}
+{% endfor%}
 
 
 ciao:
