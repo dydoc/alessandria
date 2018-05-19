@@ -1,3 +1,5 @@
+{% from "map.jinja2" import my_user, my_home with context %}
+
 sublime_text_repo:
   pkgrepo.managed:
     - humanname: sublime_text_repo
@@ -12,8 +14,7 @@ sublimetext_package:
     - name: sublime-text
 
 
-{% set my_user = salt['pillar.get']('my_user') %}
-{% set my_home = salt['user.info'](my_user).home %}
+
 {% set my_sublime_congiration_folder = my_home + '/'+ '.config/' + 'sublime-text-3' %}
 {% set packagemanager_package_name = 'Package Control.sublime-package' %}
 

@@ -1,0 +1,5 @@
+{% set name = salt['pillar.get']('name')%}
+{% set surname = salt['pillar.get']('surname')%}
+{% set email = salt['pillar.get']('email')%}
+{% set my_user = salt['pillar.get']('my_user') %}
+{% set my_home = salt['user.info'](my_user).home %}
