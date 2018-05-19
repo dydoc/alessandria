@@ -69,3 +69,9 @@ sublime:
               pythonimproved: python
         filename: SublimeLinter
     SublimeLinter-flake8:
+    Anaconda:
+      conf:
+        python_interpreter: /usr/bin/python3
+        anaconda_linting": false
+        pep8: false
+      filename: Anaconda
