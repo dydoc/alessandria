@@ -12,6 +12,8 @@ sublimetext_package:
   pkg.installed:
     - fromrepo: sublime_text_repo
     - name: sublime-text
+    - require:
+      - pkgrepo: sublime_text_repo
 
 
 
