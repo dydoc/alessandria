@@ -1,19 +1,19 @@
 {% from "map.jinja2" import my_user, my_home with context %}
 
-sublime_text_repo:
+sublimetextrepo1:
   pkgrepo.managed:
-    - humanname: sublime_text_repo
+    - humanname: sublimetextrepo
     - name: deb https://download.sublimetext.com/ apt/stable/
-    - file: /etc/apt/sources.list.d/sublime_text_repo.list
+    - file: /etc/apt/sources.list.d/sublimetextrepo.list
     - key_url: https://download.sublimetext.com/sublimehq-pub.gpg
 
 
 sublimetext_package:
   pkg.installed:
-    - fromrepo: sublime_text_repo
     - name: sublime-text
+    - version: latest
     - require:
-      - pkgrepo: sublime_text_repo
+      - pkgrepo: sublimetextrepo1
 
 
 
