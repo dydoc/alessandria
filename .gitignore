@@ -105,3 +105,6 @@ venv.bak/
 
 #Vagrant related
 .vagrant/
+
+# salt related
+saltstack/pillars/git_user.sls

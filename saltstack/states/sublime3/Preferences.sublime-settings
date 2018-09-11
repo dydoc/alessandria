@@ -1,0 +1,73 @@
+{
+    // Editor look & feel
+    "theme": "SoDaReloaded Dark.sublime-theme",
+    "highlight_modified_tabs": true,
+    "color_scheme": "Packages/Tomorrow Color Schemes/Tomorrow-Night.tmTheme",
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    // Caret style
+    "caret_style": "solid",
+    "wide_caret": true,
+    "highlight_line": true,
+    // Visible whitespace & indentation
+    "draw_white_space": "all",
+    "indent_guide_options": [
+    "draw_active"
+    ],
+    // Optimized whitespace handling
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "ensure_newline_at_eof_on_save": true,
+    // File & folder exclude patterns
+    "file_exclude_patterns": [
+    "*.pyc",
+    "*.pyo",
+    "*.exe",
+    "*.dll",
+    "*.obj",
+    "*.o",
+    "*.a",
+    "*.lib",
+    "*.so",
+    "*.dylib",
+    "*.ncb",
+    "*.sdf",
+    "*.suo",
+    "*.pdb",
+    "*.idb",
+    ".DS_Store",
+    "*.class",
+    "*.psd",
+    "*.db",
+    "*.sublime-workspace"
+    ],
+    "folder_exclude_patterns": [
+    ".svn",
+    ".git",
+    ".hg",
+    "CVS",
+    "__pycache__"
+    ],
+    // Disabled editor features to reduce clutter
+    "fold_buttons": false,
+    "show_minimap": false,
+    "ignored_packages": [
+    "Vintage"
+    ],
+    // Font rendering
+    "font_face": "Ubuntu Mono",
+    "font_size": 12,
+    "font_options": [
+    "subpixel_antialias",
+    "no_bold",
+    "no_italic"
+    ],
+    "line_padding_bottom": 0,
+    "line_padding_top": 0,
+    // Editor behavior
+    "scroll_past_end": true,
+    "shift_tab_unindent": true
+}

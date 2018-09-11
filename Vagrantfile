@@ -9,13 +9,14 @@
 require File.dirname(__FILE__)+"/dependency_manager"
 check_plugins ["reload", "vagrant-managed-servers"]
 
+
 Vagrant.configure("2") do |config|
   config.vm.box = "tknerr/managed-server-dummy"
 
 # this stanza depends from the vagrant plugin vagrant-managed-servers
   config.vm.provider :managed do |managed, override|
     managed.server = "localhost"
-    override.ssh.username = "nicolino"
+    override.ssh.username = ENV['USER']
     override.ssh.private_key_path = "~/.ssh/id_rsa"
   end
 
