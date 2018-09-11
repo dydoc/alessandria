@@ -72,6 +72,6 @@ sublime:
     Anaconda:
       conf:
         python_interpreter: /usr/bin/python3
-        anaconda_linting": false
+        anaconda_linting: false
         pep8: false
       filename: Anaconda
