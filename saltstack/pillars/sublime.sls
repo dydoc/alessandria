@@ -9,7 +9,7 @@ sublime:
             auto_save_current_file: ''
             auto_save_backup: false
             auto_save_backup_suffix: "autosave"
-        filename: auto_save                
+        filename: auto_save
     BracketHighlighter:
     Git:
     Git blame:
@@ -75,3 +75,5 @@ sublime:
         anaconda_linting: false
         pep8: false
       filename: Anaconda
+    Theme - SoDaReloaded:
+    Tomorrow Color Schemes:
