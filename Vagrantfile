@@ -6,10 +6,6 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 
-require File.dirname(__FILE__)+"/dependency_manager"
-check_plugins ["reload", "vagrant-managed-servers"]
-
-
 Vagrant.configure("2") do |config|
   config.vm.box = "tknerr/managed-server-dummy"
 
@@ -19,6 +15,9 @@ Vagrant.configure("2") do |config|
     override.ssh.username = ENV['USER']
     override.ssh.private_key_path = "~/.ssh/id_rsa"
   end
+
+  config.vagrant.plugins = ["reload", "vagrant-managed-servers"]
+
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
 
