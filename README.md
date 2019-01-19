@@ -20,8 +20,8 @@ sudo salt-call state.sls git pillar='{"my_user": "your unix username","name":"yo
 after that, salt will be up and running!
 
 To be able to run the highstate, a pillar file with git credentials must
-be created: "pillar/git_user"
-Pillar structure is described in *saltstack/states/map.jinja2*
+be created: "**pillar/git_user**".
+Pillar structure is described in **saltstack/states/map.jinja2**
 
 ## Notes
 
