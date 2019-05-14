@@ -1,3 +1,5 @@
-diffscope:
+tools:
   pkg.installed:
-- name: diffscope
+    - pkgs:
+      - jid
+      - diffoscope
